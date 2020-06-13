@@ -30,14 +30,14 @@ class ProfessionalsController < ApplicationController
     render json: { status: 'OK'  }
   end
 
-  def professional_persist
+  def persist
     infoToSaveInBox = {professional_id: @professional.id}
     wristband = encode_token(infoToSaveInBox)
     render json: {professional: ProfessionalSerializer.new(@professional), token: wristband}
   end
 
 
-  def professional_login
+  def login
     @professional = Professional.find_by(professionalname: params[:professionalname])
     if @professional && @professional.authenticate(params[:password])
       infoToSaveInBox = {professional_id: @professional.id}
