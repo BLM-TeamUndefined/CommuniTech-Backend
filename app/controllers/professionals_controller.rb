@@ -38,7 +38,7 @@ class ProfessionalsController < ApplicationController
 
 
   def login
-    @professional = Professional.find_by(professionalname: params[:professionalname])
+    @professional = Professional.find_by(username: params[:username])
     if @professional && @professional.authenticate(params[:password])
       infoToSaveInBox = {professional_id: @professional.id}
       wristband = encode_token(infoToSaveInBox)
