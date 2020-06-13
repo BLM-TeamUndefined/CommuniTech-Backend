@@ -31,14 +31,14 @@ class OrganizationsController < ApplicationController
     render json: { status: 'OK'  }
   end
 
-  def org_persist
+  def persist
     infoToSaveInBox = {organization_id: @organization.id}
     wristband = encode_token(infoToSaveInBox)
     render json: {organization: OrganizationSerializer.new(@organization), token: wristband}
   end
 
 
-  def org_login
+  def login
     @organization = Organization.find_by(organizationname: params[:organizationname])
     if @organization && @organization.authenticate(params[:password])
       infoToSaveInBox = {organization_id: @organization.id}
