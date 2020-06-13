@@ -39,7 +39,7 @@ class OrganizationsController < ApplicationController
 
 
   def login
-    @organization = Organization.find_by(organizationname: params[:organizationname])
+    @organization = Organization.find_by(email: params[:email])
     if @organization && @organization.authenticate(params[:password])
       infoToSaveInBox = {organization_id: @organization.id}
       wristband = encode_token(infoToSaveInBox)
