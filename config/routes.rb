@@ -7,6 +7,6 @@ Rails.application.routes.draw do
   post "/org_login", to: "organizations#login"
   get "/org_persist", to: "organizations#persist"
 
-  post "/professional_login", to: "professional#login"
-  get "/professional_persist", to: "professional#persist"
+  post "/professional_login", to: "professionals#login"
+  get "/professional_persist", to: "professionals#persist"
 end
