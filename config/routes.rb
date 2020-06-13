@@ -3,5 +3,10 @@ Rails.application.routes.draw do
   resources :projects, only: [:index,:create,:destroy,:update]
   resources :organizations, only: [:index, :create, :destroy, :update]
   resources :professionals, only: [:index, :create, :destroy, :update]
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  # custom routes for auth
+  post "/org_login", to: "organizations#login"
+  get "/org_persist", to: "organizations#persist"
+
+  post "/professional_login", to: "professionals#login"
+  get "/professional_persist", to: "professionals#persist"
 end
