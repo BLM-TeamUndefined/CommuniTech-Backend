@@ -31,23 +31,24 @@ class OrganizationsController < ApplicationController
     render json: { status: 'OK'  }
   end
 
-  def persist
-    infoToSaveInBox = {organization_id: @organization.id}
-    wristband = encode_token(infoToSaveInBox)
-    render json: {organization: OrganizationSerializer.new(@organization), token: wristband}
-  end
-
-
-  def login
-    @organization = Organization.find_by(email: params[:email])
-    if @organization && @organization.authenticate(params[:password])
-      infoToSaveInBox = {organization_id: @organization.id}
-      wristband = encode_token(infoToSaveInBox)
-      render json: {organization: OrganizationSerializer.new(@organization), token: wristband}
-    else
-      render json: {error: ["INCORRECT EMAIL OR PASSWORD"]}
-    end
-  end
+  # Uncomment for login and persist features 
+  # def persist
+  #   infoToSaveInBox = {organization_id: @organization.id}
+  #   wristband = encode_token(infoToSaveInBox)
+  #   render json: {organization: OrganizationSerializer.new(@organization), token: wristband}
+  # end
+  #
+  #
+  # def login
+  #   @organization = Organization.find_by(email: params[:email])
+  #   if @organization && @organization.authenticate(params[:password])
+  #     infoToSaveInBox = {organization_id: @organization.id}
+  #     wristband = encode_token(infoToSaveInBox)
+  #     render json: {organization: OrganizationSerializer.new(@organization), token: wristband}
+  #   else
+  #     render json: {error: ["INCORRECT EMAIL OR PASSWORD"]}
+  #   end
+  # end
 
   private
 
