@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+# organizations attributes :id,:name,:category,:email,:phone,:mission,:location,:image,:website,:twitter,:instagram,:facebook,:logo
+
+# organizations = Organizations.create([{name: "digitalundivided", category: "community improvement", }])
