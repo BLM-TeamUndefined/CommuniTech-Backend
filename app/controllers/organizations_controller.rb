@@ -1,6 +1,6 @@
 class OrganizationsController < ApplicationController
   before_action :authorized, only: [:persist]
-  before_action :set_org, only: [:update, :destroy]
+  before_action :set_org, only: [:update, :show, :destroy]
 
   def index
     @organizations = Organization.all
@@ -11,6 +11,10 @@ class OrganizationsController < ApplicationController
   def show
     @organization = Organization.find(params[:id])
     render json: {organization: @organization, projects: @organization.projects }
+  end
+
+  def show
+    render json: { organization: @organization, projects: @organization.projects } 
   end
 
   def create
@@ -36,7 +40,7 @@ class OrganizationsController < ApplicationController
     render json: { status: 'OK'  }
   end
 
-  # Uncomment for login and persist features 
+  # Uncomment for login and persist features
   # def persist
   #   infoToSaveInBox = {organization_id: @organization.id}
   #   wristband = encode_token(infoToSaveInBox)
