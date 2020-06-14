@@ -4,8 +4,13 @@ class OrganizationsController < ApplicationController
 
   def index
     @organizations = Organization.all
+    @projects = Project.all
+    render json: {organizations: @organizations, projects: @projects }
+  end
 
-    render json: @organizations
+  def show
+    @organization = Organization.find(params[:id])
+    render json: {organization: @organization, projects: @organization.projects }
   end
 
   def create
