@@ -9,7 +9,7 @@
 
 # organizations attributes :id,:name,:category, :description, :email,:phone,:mission,:location,:image,:website,:twitter,:instagram,:facebook,:logo
 
-organizations = Organization.create([
+organizations = [
     {name: "digitalundivided", category: "community improvement", mission: "To use innovation to create system change by catalyzing economic growth for Black and Latinx communities through women entrepreneurs.", location: "Newark Hahne Building 625 Broad Street Newark, NJ 07102 Atlanta Hurt Building 50 Hurt Plaza SE Atlanta, GA 30306", logo: "https://images.squarespace-cdn.com/content/v1/5e2613fbf9e62c2c012e80e3/1581327262914-PAI6JNUZS8G8RQDT742X/ke17ZwdGBToddI8pDm48kLkXF2pIyv_F2eUT9F60jBl7gQa3H78H3Y0txjaiv_0fDoOvxcdMmMKkDsyUqMSsMWxHk725yiiHCCLfrh8O1z4YTzHvnKhyp6Da-NYroOW3ZGjoBKy3azqku80C789l0iyqMbMesKd95J-X4EagrgU9L3Sa3U8cogeb0tjXbfawd0urKshkc5MgdBeJmALQKw/WWN-In-Between-K%2BT-7846.jpg?format=1500w", website: "https://www.digitalundivided.com/"},
     {name: "Women’s Housing and Economic Development Corporation (WHEDco)", category: "community improvement", mission: "WHEDco’s mission is to give the South Bronx access to all the resources that create thriving neighborhoods: from high-quality early education and after-school programs, to fresh, healthy food, cultural programming, and economic opportunity.", location: "50 E 168th St, The Bronx, NY 10452", logo: "https://secureservercdn.net/50.62.88.95/85f.ca5.myftpupload.com/wp-content/uploads/2016/08/Afterschool-2.jpg", website: "https://whedco.org/", twitter: "https://twitter.com/WHEDcoSpeaks", facebook: "https://www.facebook.com/WHEDco/"},
     {name: "Northern Manhattan Improvement Corporation (NMIC)", category: "community improvement", mission: "Our mission is to serve as a catalyst for positive change in the lives of the people in our community on their paths to secure and prosperous futures.", location: "45 Wadsworth Avenue, New York, NY 10033 / 8 Clinton Place, Bronx, NY  10453", website: "https://www.nmic.org/", twitter: "https://twitter.com/NMICNYC"},
@@ -30,4 +30,10 @@ organizations = Organization.create([
     {name: "Black Public Media", category: "Arts & Culture", mission: "Our mission is tocommit to a fully realized expression of democracy and we accomplish this by supporting diverse voices through training, education, and investment in visionary content makers.", location: "New York,NY", website: "https://blackpublicmedia.org/"},
     {name: "Black Alliance for Just Immigration", category: "Humanities", mission: "Black Alliance for Just Immigration is a racial and migrant rights organization which engages in organizing, education, advocacy, and cross-cultural alliance building in order to end the racism, criminalization, and economic disenfranchisement of Black immigrants, refugees, and African American communities.", location: "New York,NY", website: "https://www.astraeafoundation.org/stories/black-alliance-just-immigration-baji/?gclid=Cj0KCQjwz4z3BRCgARIsAES_OVfa6W1Dc9vDiO5VuuBnnD1QE_drWCRURN9zGIK9_LmJKJkEw9uhA6caAkUjEALw_wcB"},
     {name: "BlackTech Meetup", category: "Technology", mission: "Our mission is to empower and inspire the black tech community to achieve in their careers.", location: "Brooklyn, NY", website: "http://blacktechmeetup.org/"},
-])
+]
+
+organizations.each do |org|
+  Organization.create(org)
+end
+
+puts 'done!'
